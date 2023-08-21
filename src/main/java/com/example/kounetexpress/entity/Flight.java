@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -13,12 +14,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Produits {
-@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdProd;
-    private String designation;
-    private Double prix;
-    private String prodFour;
-    @ManyToMany(mappedBy = "clientsProd")
-    private List<Clients> cliCommand;
+public class Flight {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private Date departureTime;
+    private Date arrivalTime;
+
+    @OneToMany(mappedBy = "flight")
+    private List<Booking> bookings;
 }

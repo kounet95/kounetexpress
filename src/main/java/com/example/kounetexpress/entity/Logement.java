@@ -13,12 +13,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Produits {
-@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdProd;
-    private String designation;
-    private Double prix;
-    private String prodFour;
-    @ManyToMany(mappedBy = "clientsProd")
-    private List<Clients> cliCommand;
+public class Logement {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String location;
+    private double rating;
+
+    @OneToMany(mappedBy = "appartement")
+    private List<Booking> bookings;
 }

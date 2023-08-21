@@ -1,19 +1,23 @@
 type Query {
-    allCustomers:[Customer],
-    customerById(id:Int) : Customer
+    clientsList:[Clients],
+    clientById(id:Int) : Clients
 }
 
 type Mutation {
-    saveCustomer(customer : CustomerRequest):Customer
+    saveCustomer(client : ClientRequest):Clients
 }
 
-type Customer {
-    id : Int,
-    name : String,
-    email : String
+type Clients {
+     idClient : Int,
+     nom : String,
+     prenom : String,
+     email : String,
+     age : Int,
+     paysDorigine : String,
+     paysResidence : String
 }
 
-input CustomerRequest {
+input ClientRequest {
     name : String,
     email : String
 }
